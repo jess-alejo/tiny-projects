@@ -755,44 +755,48 @@ body {
 }
 
 .navigation__button {
-  background-color: #fff;
-  height: 7rem;
-  width: 7rem;
-  border-radius: 50%;
   position: fixed;
   top: 6rem;
   right: 6rem;
+  height: 7rem;
+  width: 7rem;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   z-index: 1200;
 }
 
 .navigation__background {
-  height: 6rem;
-  width: 6rem;
-  border-radius: 50%;
   position: fixed;
   top: 6.5rem;
   right: 6.5rem;
+  height: 6rem;
+  width: 6rem;
   background: radial-gradient(#7ed56f, #28b485);
+  border-radius: 50%;
   z-index: 1000;
-  transform: scale(80);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navigation__nav {
-  height: 100vh;
-  width: 100vw;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
+  height: 100vh;
+  width: 0;
+  opacity: 0;
   z-index: 1100;
+  transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
 .navigation__list {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  list-style: none;
+  width: 100%;
   text-align: center;
+  list-style: none;
+  transform: translate(-50%, -50%);
 }
 
 .navigation__item {
@@ -802,12 +806,12 @@ body {
 .navigation__link:link,
 .navigation__link:visited {
   display: inline-block;
+  padding: 1rem 2rem;
   font-size: 3rem;
   font-weight: 300;
-  padding: 1rem 2rem;
-  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
+  color: #fff;
   background: linear-gradient(
     120deg,
     transparent 0%,
@@ -823,6 +827,15 @@ body {
   background-position: 100%;
   color: #55c57a;
   transform: translateX(1rem);
+}
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80);
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  width: 100%;
+  opacity: 1;
 }
 
 .section-about {
